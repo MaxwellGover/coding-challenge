@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
+import store from './store';
 
 class App extends Component {
   render() {
+    console.log(store.getState())
     return (
       <div className="App container">
         <div className="App-header">
-          {this.props.children}
+          {React.cloneElement(this.props.children, this.props)}
         </div>
       </div>
     );

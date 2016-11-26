@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router';
 
 class LinkItem extends Component {
   constructor() {
@@ -10,7 +11,12 @@ class LinkItem extends Component {
   render() {
     return (
       <div className="LinkItem">
-        I'm a link item
+         <tr>
+          <td><Link to=''>Link Name</Link></td>
+          <td>{this.state.clicks}</td>
+          <td>Edit</td>
+          <td>Delete</td>
+        </tr>
     	</div>
     );
   }

@@ -7,8 +7,8 @@ class LinkPage extends Component {
     return (
       <div className="LinkPage">
         <h1 className="LinkPage-header"><b>Grow the web with referrals!</b></h1>
-    	<LinkInput />
-    	<LinkList />
+    	<LinkInput data={this.props}/>
+    	<LinkList data={this.props}/>
       </div>
     );
   }

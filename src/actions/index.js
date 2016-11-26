@@ -1,7 +1,8 @@
 // Add link
-export function addLink() {
+export function addLink(linkName) {
 	return {
-		type: 'ADD_LINK'
+		type: 'ADD_LINK',
+		linkName
 	}
 }
 
