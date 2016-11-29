@@ -1,23 +1,24 @@
 // Add link
-export function addLink(linkName) {
+export function addLink(text) {
 	return {
 		type: 'ADD_LINK',
-		linkName
+		text
 	}
 }
 
 // Edit link
-export function editLink(index) {
+export function editLink(index, text) {
 	return {
 		type: 'EDIT_LINK',
-		index
+		index,
+		text
 	}
 }
 
 // Remove link
-export function removeLink(index) {
+export function deleteLink(index) {
 	return {
-		type: 'REMOVE_LINK',
+		type: 'DELETE_LINK',
 		index
 	}
 }

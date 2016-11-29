@@ -14,7 +14,7 @@ ReactDOM.render(
 	  <Router history={browserHistory}>
 	    <Route path="/" component={Main}>
 	      <IndexRoute component={LinkPage}/>
-	      <Route path=":name" component={LandingPage}></Route>
+	      <Route path="/landing/:name" component={LandingPage}></Route>
 	    </Route>
 	  </Router>
   </Provider>,

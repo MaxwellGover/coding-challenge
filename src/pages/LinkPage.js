@@ -3,6 +3,9 @@ import LinkInput from '../components/LinkInput';
 import LinkList from '../components/LinkList';
 
 class LinkPage extends Component {
+  componentWillUpdate(nextProps, nextState) {
+  	// Do something
+  }
   render() {
     return (
       <div className="LinkPage">

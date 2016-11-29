@@ -1,7 +1,7 @@
 import {createStore} from 'redux';
 import rootReducer from './reducers/index';
 
-const appState = {
+export const appState = {
 	links: []
 };
 
