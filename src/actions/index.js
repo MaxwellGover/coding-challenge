@@ -7,11 +7,11 @@ export function addLink(text) {
 }
 
 // Edit link
-export function editLink(index, text) {
+export function updateLink(index, newText) {
 	return {
-		type: 'EDIT_LINK',
+		type: 'UPDATE_LINK',
 		index,
-		text
+		newText
 	}
 }
 

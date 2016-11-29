@@ -18,11 +18,15 @@ export function linkList(state = [], action) {
    					...state.links.slice(index + 1)
 				],
 			};
-		case 'EDIT_LINK':
+		case 'UPDATE_LINK':
 			var index = action.index;
-			var text = action.text;
-			console.log(action.text);
+			var newText = action.newText;
+			console.log(action.newText);
 			console.log(action.index);
+			return {
+				...state,
+				// Now what?
+			}
 		default: 
 			return state;
 	}

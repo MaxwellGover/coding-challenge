@@ -16,7 +16,7 @@ class LinkItem extends Component {
     this.setState({
       newText: newText
     }, function(){
-     console.log(this.state.newText);
+      this.props.data.updateLink(this.props.index, this.state.newText);
     })
   }
   handleClick() {
