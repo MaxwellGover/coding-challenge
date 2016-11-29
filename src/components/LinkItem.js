@@ -16,7 +16,7 @@ class LinkItem extends Component {
     const localStorageRef = localStorage.getItem('link-' + this.props.link);
     if(localStorageRef) {
       this.setState({
-        clicks: JSON.parse(localStorageRef) + 1
+        clicks: JSON.parse(localStorageRef)
       })
     }
   }
@@ -32,7 +32,7 @@ class LinkItem extends Component {
     })
   }
   handleClick() {
-    this.getClicksCount();
+    localStorage.setItem('link-' + this.props.link, this.state.clicks + 1);
   }
   render() {
       return (
