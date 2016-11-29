@@ -8,15 +8,16 @@ class LinkItem extends Component {
     this.state = {
       clicks: 0,
       text: this.props.link,
-      newText: ''
+      newText: null
     };
   }
   editLink() {
     var newText = prompt('Update your link');
     this.setState({
       newText: newText
-    });
-    console.log(this.state.newText);
+    }, function(){
+     console.log(this.state.newText);
+    })
   }
   handleClick() {
     const clicks = this.state.clicks;
@@ -29,7 +30,7 @@ class LinkItem extends Component {
       return (
         <tr>
           <td>
-              <IndexLink onClick={this.handleClick.bind(this)} to={{pathname: 'landing/' + this.props.link}}>{this.props.link}</IndexLink>
+              <IndexLink onClick={this.handleClick.bind(this)} to={{pathname: 'landing/' + this.props.link}}>{this.state.newText != null ? this.state.newText : this.props.link}</IndexLink>
           </td>
           <td>{JSON.parse(localStorage.getItem(`link-${this.props.link}`))}</td>
           <td><button className="btn btn-default" onClick={this.editLink.bind(this)}>Edit</button></td>
