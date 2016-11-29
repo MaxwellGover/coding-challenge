@@ -6,8 +6,8 @@ class App extends Component {
   render() {
     console.log(store.getState())
     return (
-      <div className="App container">
-        <div className="App-header">
+      <div className="app container">
+        <div className="app-header">
           {React.cloneElement(this.props.children, this.props)}
         </div>
       </div>

@@ -1,3 +1,4 @@
+/*eslint-disable*/
 export function linkList(state = [], action) {
 	switch(action.type) {
 		case 'ADD_LINK': 
@@ -25,7 +26,11 @@ export function linkList(state = [], action) {
 			console.log(action.index);
 			return {
 				...state,
-				// Now what?
+				links: [ 
+					...state.links.slice(0, index),
+        			newText,
+        			...state.links.slice(index + 1)
+				],
 			}
 		default: 
 			return state;

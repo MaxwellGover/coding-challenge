@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import Input from '../styles/LinkInput.css'
-//import Input from 'react-conventions/lib/Input'
 
 class LinkInput extends Component {
   constructor(props) {
@@ -9,7 +7,6 @@ class LinkInput extends Component {
   		text: '',
   	};
   }
-  
   handleChange(e) {
   	e.preventDefault();
   	this.setState({
@@ -17,23 +14,23 @@ class LinkInput extends Component {
   	});
   }
   render() {
+    var styles = {
+      block: {
+        display: 'flex',
+        flexDirection: 'row',
+        marginTop: 60,
+      }
+    }
     return (
-        <div className="LinkInput form-group-lg">
-        	<form onSubmit={this.props.data.addLink.bind(null, this.state.text)}>
-        		<div className="row">
-        			<div className="col-md-2">
-        		 		<h3>Add a link: </h3>
-        			</div>
-        			<div className="input-group col-md-10">
-        			{/*<Input label='Input with error' value='' optClass='input-error' onChange={this.handleChange.bind(this)}/>*/}
-        				<input type="text" className="linkInput form-control" onChange={this.handleChange.bind(this)}/>
-        				<span className="input-group-btn">
-        					<button className="btn btn-default btn-lg" type="button" onClick={this.props.data.addLink.bind(null, this.state.text)}>Add</button>
-      					</span>
-            		</div>
-            	</div>
-            </form>
-    	</div>
+        <div className="block form-group row" style={styles.block}>
+          <label htmlFor="example-text-input" className="prompt col-form-label">Add a link</label>
+            <div className="">
+              <input className="form form-control" type="text" onChange={this.handleChange.bind(this)} />
+            </div>
+        		<div className="button col-md-4">
+        		  <button className="btn btn-default" type="button" onClick={this.props.data.addLink.bind(null, this.state.text)}>Add</button>
+            </div>
+        </div>
     );
   }
 }

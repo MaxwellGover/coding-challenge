@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import LinkItem from './LinkItem';
+/* eslint-disable */
 import List from '../styles/LinkList.css'
 
 class LinkList extends Component {

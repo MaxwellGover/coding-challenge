@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {IndexLink} from 'react-router';
+/* eslint-disable */
 import Item from '../styles/LinkItem.css';
 
 class LinkItem extends Component {
@@ -11,8 +12,19 @@ class LinkItem extends Component {
       newText: null
     };
   }
+  getClicksCount() {
+    const localStorageRef = localStorage.getItem('link-' + this.props.link);
+    if(localStorageRef) {
+      this.setState({
+        clicks: JSON.parse(localStorageRef) + 1
+      })
+    }
+  }
+  componentWillMount() {
+    this.getClicksCount()
+  }
   editLink() {
-    var newText = prompt('Update your link');
+    const newText = prompt('Update your link');
     this.setState({
       newText: newText
     }, function(){
@@ -20,11 +32,7 @@ class LinkItem extends Component {
     })
   }
   handleClick() {
-    const clicks = this.state.clicks;
-    this.setState({
-      clicks: clicks + 1
-    });
-    localStorage.setItem(`link-${this.props.link}`, JSON.stringify(clicks));
+    this.getClicksCount();
   }
   render() {
       return (
@@ -32,7 +40,7 @@ class LinkItem extends Component {
           <td>
               <IndexLink onClick={this.handleClick.bind(this)} to={{pathname: 'landing/' + this.props.link}}>{this.state.newText != null ? this.state.newText : this.props.link}</IndexLink>
           </td>
-          <td>{JSON.parse(localStorage.getItem(`link-${this.props.link}`))}</td>
+          <td>{this.state.clicks}</td>
           <td><button className="btn btn-default" onClick={this.editLink.bind(this)}>Edit</button></td>
           <td><button className="btn btn-danger" onClick={this.props.data.deleteLink.bind(null, this.props.index)}>Delete</button></td>
         </tr>
