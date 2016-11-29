@@ -13,24 +13,35 @@ class LinkInput extends Component {
   		text: e.target.value
   	});
   }
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.data.addLink(this.state.text);
+    this.refs.linkForm.reset();
+  }
   render() {
     var styles = {
-      block: {
-        display: 'flex',
-        flexDirection: 'row',
-        marginTop: 60,
+      form: {
+        marginTop: 20,
+        marginBottom: 20
+      },
+      label: {
+        marginRight: 20
+      },
+      button: {
+        margin: 20
+      },
+      input: {
+        width: '400px'
       }
     }
     return (
-        <div className="block form-group row" style={styles.block}>
-          <label htmlFor="example-text-input" className="prompt col-form-label">Add a link</label>
-            <div className="">
-              <input className="form form-control" type="text" onChange={this.handleChange.bind(this)} />
-            </div>
-        		<div className="button col-md-4">
-        		  <button className="btn btn-default" type="button" onClick={this.props.data.addLink.bind(null, this.state.text)}>Add</button>
-            </div>
-        </div>
+        <form className="form form-inline" ref="linkForm" onSubmit={this.handleSubmit.bind(this)} style={styles.form}>
+          <div className="form-group">
+            <label className="label" htmlFor="exampleInputName2" style={styles.label}>Add a link: </label>
+            <input type="text" className="input form-control" onChange={this.handleChange.bind(this)} style={styles.input}/>
+          </div>
+          <button type="submit" className="button btn btn-primary" style={styles.button}>Add link</button>
+        </form>
     );
   }
 }

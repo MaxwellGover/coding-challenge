@@ -12,7 +12,7 @@ class LandingPage extends Component {
         flexDirection: 'column',
         marginTop: 60
       },
-    }
+    };
     return (
       <div className="container" style={styles.container}>
       	<h3>Welcome to the Landing Page</h3>
