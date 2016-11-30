@@ -8,7 +8,7 @@ table {
     width: 100%;
 }
 
-tr:nth-child(even){background-color: #f2f2f2}
+tr:nth-child(even){background-color: #F7F7F9}
 
 th, td, tr {
     padding: 15px;
@@ -16,5 +16,5 @@ th, td, tr {
 }
 
 th {
-	background-color: #f2f2f2;
+	background-color: #F7F7F9;
 }

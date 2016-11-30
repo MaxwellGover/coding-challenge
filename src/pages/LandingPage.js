@@ -13,11 +13,14 @@ class LandingPage extends Component {
         marginTop: 60,
         marginBottom: 20
       },
+      header: {
+        color: '#1B252F'
+      }
     };
     return (
       <div className="container" style={styles.container}>
       	<LinkQuery {...this.props}/>
-      	<h1>Welcome to the World Wide Web!</h1>
+      	<h1 className="header">Welcome to the World Wide Web!</h1>
       </div>
     );
   }
