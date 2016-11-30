@@ -3,15 +3,12 @@ export function linkList(state = [], action) {
 	switch(action.type) {
 		case 'ADD_LINK': 
 			var text = action.text;
-			console.log('Adding link');
-			console.log(text);
 			return {
 				...state,
 				links: [text, ...state.links]
 			};
 		case 'DELETE_LINK':
 			var index = action.index;
-			console.log('Deleting link');
 			return {
 				...state,
 				links: [
@@ -22,8 +19,6 @@ export function linkList(state = [], action) {
 		case 'UPDATE_LINK':
 			var index = action.index;
 			var newText = action.newText;
-			console.log(action.newText);
-			console.log(action.index);
 			return {
 				...state,
 				links: [ 

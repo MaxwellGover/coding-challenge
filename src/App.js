@@ -5,7 +5,6 @@ import store from './store';
 
 class App extends Component {
   render() {
-    console.log(store.getState());
     return (
       <div className="app container">
         <div className="app-header">

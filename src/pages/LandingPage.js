@@ -5,7 +5,7 @@ import {Link} from 'react-router';
 class LandingPage extends Component {
   render() {
     var styles = {
-      container: {
+      landingPage: {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
@@ -16,15 +16,18 @@ class LandingPage extends Component {
       },
       header: {
         color: '#F7F7F9',
-        fontSize: '40px',
+        fontSize: 40,
         textAlign: 'center',
         fontFamily: 'Russo One, sans-serif'
       },
       link: {
         textAlign: 'center'
       },
-      back: {
-        marginTop: 40
+      backButton: {
+        marginTop: 40,
+        borderRadius: 2,
+        backgroundColor: '#3C97D3',
+        borderColor: '#3C97D3'
       },
       background: {
         width: '100%', 
@@ -40,13 +43,13 @@ class LandingPage extends Component {
       }
     };
     return (
-      <div className="container" style={styles.container}>
+      <div className="landingPage container" style={styles.landingPage}>
         <div className="background" style={styles.background}>
-          <img src="https://static.pexels.com/photos/167705/pexels-photo-167705.jpeg" class="stretch" alt="" style={styles.stretch}/>
+          <img src="http://i.imgur.com/zf1ujcx.jpg" class="stretch" alt="" style={styles.stretch}/>
         </div>
         <LinkQuery className="link" {...this.props} style={styles.link}/>
         <h1 className="header" style={styles.header}>Welcome to the World Wide Web!</h1>
-        <Link to="/"><button className="back btn btn-primary btn-lg" style={styles.back} align="center">Add another link</button></Link>
+        <Link to="/"><button className="backButton btn btn-primary btn-lg" style={styles.backButton}>Add another link</button></Link>
       </div>
     );
   }

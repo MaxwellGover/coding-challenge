@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {IndexLink} from 'react-router';
-/* eslint-disable */
-import Item from '../styles/LinkItem.css';
+import '../styles/LinkItem.css';
 
 class LinkItem extends Component {
   constructor(props) {
@@ -30,9 +29,6 @@ class LinkItem extends Component {
     });
   }
   componentWillMount() {
-    const key = this.getStoreKey();
-    console.log(this.getStoreKey());
-    console.log(sessionStorage.getItem(key));
     this.updateClicksCountState(this.getClicksCount());
   }
   editLink() {
@@ -41,7 +37,7 @@ class LinkItem extends Component {
       newText: newText
     }, function(){
       this.props.data.updateLink(this.props.index, this.state.newText);
-    })
+    });
   }
   handleClick() {
     const oldValue = this.getClicksCount();
@@ -53,20 +49,25 @@ class LinkItem extends Component {
       var styles = {
         editButton: {
           background: '#9198A0',
-          color: 'white'
+          color: 'white',
+          borderRadius: 2
         },
         deleteButton: {
-          background: '#E54C3B'
+          background: '#E54C3B',
+          borderRadius: 2
+        },
+        link: {
+          color: '#3178B7'
         }
-      }
+      };
       const key = this.getStoreKey();
       const value = sessionStorage.getItem(key);
       return (
         <tr>
           <td>
-              <IndexLink onClick={this.handleClick.bind(this)} to={{pathname: 'landing/' + this.props.link}}>{this.state.newText != null ? this.state.newText : this.props.link}</IndexLink>
+            <IndexLink className="link" onClick={this.handleClick.bind(this)} to={{pathname: 'landing/' + this.props.link}} style={styles.link}>{this.state.newText != null ? this.state.newText : this.props.link}</IndexLink>
           </td>
-          <td>{value ? value : 0}</td>
+          <td style={{textAlign: 'center'}}>{value ? value : 0}</td>
           <td><button className="editButton btn btn-default" onClick={this.editLink.bind(this)} style={styles.editButton}>Edit</button></td>
           <td><button className="deleteButton btn btn-danger" onClick={this.props.data.deleteLink.bind(null, this.props.index)} style={styles.deleteButton}>Delete</button></td>
         </tr>
