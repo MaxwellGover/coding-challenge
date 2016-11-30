@@ -12,16 +12,25 @@ class LinkItem extends Component {
       newText: null
     };
   }
+  getStoreKey() {
+    return 'link-' + this.props.link;
+  }
   getClicksCount() {
-    const localStorageRef = localStorage.getItem('link-' + this.props.link);
-    if(localStorageRef) {
-      this.setState({
-        clicks: JSON.parse(localStorageRef)
-      })
-    }
+    const key = this.getStoreKey();
+    const value = localStorage.getItem(key);
+    return JSON.parse(value);
+  }
+  setClicksCount(newValue) {
+    const key = this.getStoreKey();
+    localStorage.setItem(key, newValue);
+  }
+  updateClicksCountState(val) {
+    this.setState({
+      clicks: val,
+    });
   }
   componentWillMount() {
-    this.getClicksCount()
+    this.updateClicksCountState(this.getClicksCount());
   }
   editLink() {
     const newText = prompt('Update your link');
@@ -32,7 +41,10 @@ class LinkItem extends Component {
     })
   }
   handleClick() {
-    localStorage.setItem('link-' + this.props.link, this.state.clicks + 1);
+    const oldValue = this.getClicksCount();
+    const newValue = oldValue + 1;
+    this.setClicksCount(newValue);         // that will update value in localStorage
+    this.updateClicksCountState(newValue);
   }
   render() {
       var styles = {
@@ -49,7 +61,7 @@ class LinkItem extends Component {
           <td>
               <IndexLink onClick={this.handleClick.bind(this)} to={{pathname: 'landing/' + this.props.link}}>{this.state.newText != null ? this.state.newText : this.props.link}</IndexLink>
           </td>
-          <td>{this.state.clicks}</td>
+          <td>{this.state.clicks || 0}</td>
           <td><button className="editButton btn btn-default" onClick={this.editLink.bind(this)} style={styles.editButton}>Edit</button></td>
           <td><button className="deleteButton btn btn-danger" onClick={this.props.data.deleteLink.bind(null, this.props.index)} style={styles.deleteButton}>Delete</button></td>
         </tr>
