@@ -14,9 +14,8 @@ class LinkPage extends Component {
         marginTop: 60,
       },
       header: {
-        color: '#1B252F'
+        color: '#1B252F',
       }
-      
     };
     return (
       <div className="container" style={styles.container}>

@@ -25,10 +25,10 @@ class LinkInput extends Component {
         marginBottom: 20
       },
       label: {
-        marginRight: 20
+        marginRight: 15
       },
       button: {
-        margin: 20,
+        margin: 15,
         backgroundColor: '#3178B7'
       },
       input: {
