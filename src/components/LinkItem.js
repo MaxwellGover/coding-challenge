@@ -35,14 +35,23 @@ class LinkItem extends Component {
     localStorage.setItem('link-' + this.props.link, this.state.clicks + 1);
   }
   render() {
+      var styles = {
+        editButton: {
+          background: '#9198A0',
+          color: 'white'
+        },
+        deleteButton: {
+          background: '#E54C3B'
+        }
+      }
       return (
         <tr>
           <td>
               <IndexLink onClick={this.handleClick.bind(this)} to={{pathname: 'landing/' + this.props.link}}>{this.state.newText != null ? this.state.newText : this.props.link}</IndexLink>
           </td>
           <td>{this.state.clicks}</td>
-          <td><button className="btn btn-default" onClick={this.editLink.bind(this)}>Edit</button></td>
-          <td><button className="btn btn-danger" onClick={this.props.data.deleteLink.bind(null, this.props.index)}>Delete</button></td>
+          <td><button className="editButton btn btn-default" onClick={this.editLink.bind(this)} style={styles.editButton}>Edit</button></td>
+          <td><button className="deleteButton btn btn-danger" onClick={this.props.data.deleteLink.bind(null, this.props.index)} style={styles.deleteButton}>Delete</button></td>
         </tr>
     );
   }

@@ -28,7 +28,8 @@ class LinkInput extends Component {
         marginRight: 20
       },
       button: {
-        margin: 20
+        margin: 20,
+        backgroundColor: '#3178B7'
       },
       input: {
         width: '400px'

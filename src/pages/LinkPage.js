@@ -13,10 +13,10 @@ class LinkPage extends Component {
         flexDirection: 'column',
         marginTop: 60,
       },
-    }
+    };
     return (
       <div className="container" style={styles.container}>
-        <h1 className="header"><b>Grow the web with referrals!</b></h1>
+        <h1 className="animated fadeInDown"><b>Grow the web with referrals!</b></h1>
     	  <LinkInput data={this.props}/>
     	  <LinkList data={this.props}/>
       </div>
