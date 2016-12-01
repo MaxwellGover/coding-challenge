@@ -33,11 +33,15 @@ class LinkItem extends Component {
   }
   editLink() {
     const newText = prompt('Update your link');
-    this.setState({
-      newText: newText
-    }, function(){
-      this.props.data.updateLink(this.props.index, this.state.newText);
-    });
+    if (newText === null) {
+      return this.state.text; 
+    } else {
+      this.setState({
+        newText: newText
+      }, function(){
+        this.props.data.updateLink(this.props.index, this.state.newText);
+      });
+    }
   }
   handleClick() {
     const oldValue = this.getClicksCount();
