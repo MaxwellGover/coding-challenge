@@ -45,7 +45,7 @@ class LandingPage extends Component {
     return (
       <div className="landingPage" style={styles.landingPage}>
         <div className="background" style={styles.background}>
-          <img src="http://i.imgur.com/zf1ujcx.jpg" className="stretch" alt="" style={styles.stretch}/>
+          <img src="http://i.imgur.com/58NFfpn.jpg" className="stretch" alt="" style={styles.stretch}/>
         </div>
         <LinkQuery className="link" {...this.props} style={styles.link}/>
         <h1 className="header" style={styles.header}>Welcome to the World Wide Web!</h1>
